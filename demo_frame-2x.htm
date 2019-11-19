@@ -1,0 +1,44 @@
+﻿<!doctype html>
+<html lang="zh_CN" class="">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="main.css">
+	<script src="https://static.kdz6.cn/lib/zepto.js"></script>
+	<style>
+	</style>
+</head>
+<body>
+
+<header>
+	<label>
+		xxx
+	</label>
+	<nav>
+		<a>模块1</a>
+		<a class="sel">模块2</a>
+	</nav>
+</header>
+<main>
+	<left>
+		<menu>
+			<div onclick="$('main').toggleClass('smlmenu');if(window.onMenuHide){window.onMenuHide();}">switch</div>
+
+			<a>菜单1</a>
+			<a>菜单2</a>
+			<a>菜单3</a>
+		</menu>
+	</left>
+	<right>
+		<toolbar>
+			<left>
+				名字：<input type="text" /> <button type="button">查询</button>
+			</left>
+		</toolbar>
+	</right>
+</main>
+<footer>
+
+</footer>
+
+</body>
+</html>

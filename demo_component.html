@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="zh_CN" class="frm10">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="main.css">
+    <script src="https://static.kdz6.cn/lib/zepto.js"></script>
+    <style></style>
+</head>
+<body>
+<block>
+    <h2>组件：即自定义样式组件</h2>
+</block>
+<block>
+    <h3>其中服务端组件有：c:header, c:footer(基本没用), c:leftmenu, c:toolmenu***, c:pagebar （此处略过）</h3>
+</block>
+<br>
+<br>
+<!-- ---------------------- -->
+<hr />
+<h2>组件1-1：dagagrid （数据网格）</h2>
+<br />
+<!-- ---------------------- -->
+<pre>
+&lt;datagrid&gt;
+    &lt;table&gt;&lt;/table&gt;
+&lt;/datagrid&gt;
+</pre>
+<datagrid>
+    <table>
+        <thead>
+        <tr>
+            <td width="100px" sort="">tag</td>
+            <td width="250px">logger</td>
+            <td width="80px" sort="row_num">总数量</td>
+            <td width="80px" sort="row_num_today">今日数量</td>
+            <td width="80px" sort="row_num_yesterday">昨日数量</td>
+            <td width="80px" sort="row_num_beforeday">前日数量</td>
+            <td>备注</td>
+        </tr>
+        </thead>
+        <tbody id="tbody">
+
+        <tr >
+            <td>beauty</td>
+            <td class="left"><a href="#">beauty_log_api_output</a></td>
+            <td class="left">4464342</td>
+            <td class="left">22232</td>
+            <td class="left">177612</td>
+            <td class="left">177930</td>
+            <td class="left break"></td>
+        </tr>
+        </tbody>
+    </table>
+</datagrid>
+
+
+<!-- ---------------------- -->
+<hr />
+<h2>组件1-2：toolbar （工具条）</h2>
+<br>
+<!-- ---------------------- -->
+<pre>
+&lt;toolbar&gt; 
+    
+&lt;/toolbar&gt;
+</pre>
+<toolbar>
+
+            出借人：<input value="" style="width: 180px;" type="text" name="lender_input" id="lender_input" placeholder="出借人手机号/姓名"/>&nbsp;&nbsp;&nbsp;&nbsp;
+            借款人：<input value="" style="width: 180px;" type="text" name="borrower_input" id="borrower_input" placeholder="借款人手机号/姓名"/>&nbsp;&nbsp;&nbsp;&nbsp;
+            借条订单号：<input value="" type="text" name="iou_no" id="iou_no" placeholder="订单号"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            还款订单号：<input value="" type="text" name="order_no" id="order_no" placeholder="订单号"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <br/>
+
+        还款时间:  <input value="" name="repay_begin" id ="repay_begin" placeholder="起始时间" class="date-input">
+            -  <input value="" name="repay_end" id ="repay_end" placeholder="结束时间" class="date-input">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            还款状态：<select id="repay_status" name="repay_status">
+            <option value="0">所有状态</option>
+            <option value="1">成功</option>
+            <option value="2">还款中</option>
+            <option value="3">失败</option>
+        </select>
+            支付通道筛选：<select id="channel_select" name="channel_select">
+            <option value="-1">所有支付通道</option>
+
+            <option value="0">支付通道B</option>
+
+            <option value="1">支付通道H</option>
+
+        </select>
+            <button type="submit">查询</button>&nbsp;&nbsp;
+            <button type="button" onclick="getDownload()">结果导出</button>
+</toolbar>
+
+
+
+<pre>
+&lt;toolbar&gt;  //左右两块
+    &lt;left&gt;&lt;/left&gt;
+    &lt;right&gt;&lt;/right&gt;
+&lt;/toolbar&gt;
+</pre>
+<toolbar>
+    <left>
+        名字：<input type="text" /> <button type="button">查询</button> <a class="mar20"></a> <button type="button" class="edit">添加</button>
+    </left>
+    <right>
+        <selector>
+            <a class="sel">aa</a> |
+            <a>bb</a> |
+            <a>cc</a>
+        </selector>
+    </right>
+</toolbar>
+
+<!-- ---------------------- -->
+<hr />
+<h2>组件1-3：selector （选择条）</h2>
+<br>
+<!-- ---------------------- -->
+<pre>
+&lt;selector&gt;
+    &lt;a&gt;&lt;/a&gt;
+&lt;/selector&gt;
+</pre>
+<selector>
+    <a class="sel">aa</a> 
+    <a>bb</a> 
+    <a>cc</a>
+</selector>
+
+
+
+<!-- ---------------------- -->
+<hr />
+<h2>组件1-4：pagebar（已封装成jsp/ct:pagebar）</h2>
+<br />
+<!-- ---------------------- -->
+<pre>
+&lt;pagebar&gt;
+    &lt;left&gt;&lt;/left&gt;
+    &lt;right&gt;&lt;/right&gt;
+&lt;/pagebar&gt;
+</pre>
+<pagebar>
+	<left> 
+		<table>  <tr>   <td><button type='button' class='form_button' onclick="UrlQueryBy('page',1)" disabled='disabled' >首页</button></td>   <td><button type='button' class='form_button' onclick="UrlQueryBy('page',0)" disabled='disabled' >上一页</button></td>   <td><input  id='js_pager_no' type='text' value='1' onblur="UrlQueryBy('page',this.value);" class='form_text' /></td>   <td><button type='button' class='form_button' onclick="UrlQueryBy('page',2)"  >下一页</button></td>   <td><button type='button' class='form_button' onclick="UrlQueryBy('page',490)"  >尾页</button></td>  </tr> 
+		</table>
+	</left>
+	<right>  
+		<em>共<span>490</span>页 （共<span>8321</span>条记录）</em>  
+	</right>
+</pagebar>
+
+
+<!-- ---------------------- -->
+<hr />
+<h2>组件1-5：tabbar</h2>
+<br />
+<!-- ---------------------- -->
+<pre>
+&lt;tabbar&gt;
+    &lt;button&gt;&lt;/button&gt;
+&lt;/tabbar&gt;
+</pre>
+<tabbar>
+    <button>aaa</button>
+    <button class="sel">bbb</button>
+    <button>ccc</button>
+    <a class="btn">ddd</a>
+</tabbar>
+
+
+
+<!-- ---------------------- -->
+<hr />
+<h2>组件1-6：block （色块）</h2>
+<br />
+<!-- ---------------------- -->
+<pre>
+&lt;block&gt;
+&lt;/block&gt;
+</pre>
+<block>
+    xxx
+</block>
+
+
+<!-- ---------------------- -->
+<hr />
+<h2>组件1-7：tile （磁片 或 块）</h2>
+<br />
+<!-- ---------------------- -->
+<pre>
+&lt;tile&gt;
+    &lt;label&gt;&lt;/label&gt;
+    &lt;div&gt;&lt;/div&gt;
+&lt;/tile&gt;
+</pre>
+<div class="bg13">
+    <tile class="col-4 mar10">
+        <label>title</label>
+        <div>
+            <block>xxxx</block>
+        </div>
+    </tile>
+</div>
+
+
+<!-- ---------------------- -->
+<hr />
+<h2>组件1-8：note or n （备注文本：浅色字）</h2>
+<br />
+<!-- ---------------------- -->
+<pre>
+    &lt;note&gt;&lt;/note&gt;
+    &lt;n&gt;&lt;/n&gt;
+</pre>
+<div>
+    <note>备注文本</note> <n>备注文本</n>
+</div>
+
+
+<br>
+<!-- ---------------------- -->
+<hr />
+<h2>组件2：表单组件（参考 表单部分）</h2>
+<br />
+<!-- ---------------------- -->
+
+</body>
+</html>

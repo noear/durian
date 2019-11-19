@@ -1,0 +1,85 @@
+﻿<!doctype html>
+<html lang="zh_CN" class="">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="main.css">
+	<script src="https://static.kdz6.cn/lib/zepto.js"></script>
+	<style>
+	</style>
+</head>
+<body>
+
+<header>
+		<label>
+			xxx
+		</label>
+		<nav>
+			<a>模块1</a>
+			<a class="sel">模块2</a>
+		</nav>
+		<aside>
+			欢迎你：xxx（修改密码）
+		</aside>
+</header>
+<main>
+	<left>
+		<menu>
+			<div onclick="$('main').toggleClass('smlmenu');if(window.onMenuHide){window.onMenuHide();}">switch</div>
+
+			<a>菜单1</a>
+			<a class="sel">菜单2</a>
+			<a>菜单3</a>
+		</menu>
+	</left>
+	<middle>
+		<tree>
+			<ul>
+				<li class="sel"><a>node1</a></li>
+				<li><a>node2</a></li>
+				<li><a>node3</a></li>
+				<li><a>node4</a></li>
+				<li><a>node5</a></li>
+			</ul>
+		</tree>
+	</middle>
+	<right>
+		<toolbar>
+			<left>
+				名字：<input type="text" /> <button type="button">查询</button> <a class="mar20"></a> <button type="button" class="edit">添加</button>
+			</left>
+			<right>
+				<selector>
+					<a class="sel">aa</a> |
+					<a>bb</a> |
+					<a>cc</a>
+				</selector>
+			</right>
+		</toolbar>
+		<datagrid>
+			<table>
+				<thead>
+				<tr>
+					<td>col1</td>
+					<td>col2</td>
+					<td>col3</td>
+					<td>col4</td>
+				</tr>
+				</thead>
+				<tbody>
+				<tr>
+					<td>1</td>
+					<td>2</td>
+					<td>3</td>
+					<td>4</td>
+				</tr>
+				</tbody>
+			</table>
+		</datagrid>
+	</right>
+</main>
+<footer>
+
+</footer>
+
+</body>
+</html>

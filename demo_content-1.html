@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="zh_CN" class="frm10">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="main.css">
+    <script src="//static.kdz6.cn/lib/zepto.js"></script>
+    <style>
+
+
+    </style>
+</head>
+<body>
+
+<block>
+    <h2>内容页主要分：列表页，详情页（含表单页），统计页；或者混排</h2>
+</block>
+<br>
+
+<main>
+    <h2>示例1：（main/toolbar + datagrid + pagebar）<n>//一般用于列表页</n></h2>
+    <hr />
+    <toolbar>
+        <left>
+            名字：<input type="text" /> <button type="button">查询</button> <a class="mar20"></a> <button type="button" class="edit">添加</button>
+        </left>
+        <right>
+            <selector>
+                <a class="sel">aa</a> 
+                <a>bb</a> 
+                <a>cc</a>
+            </selector>
+        </right>
+    </toolbar>
+    <datagrid>
+        <table>
+            <thead>
+            <tr>
+                <td>col1</td>
+                <td>col2</td>
+                <td sort="col3">col3</td>
+                <td sort="col4">col4</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+            </tr>
+            </tbody>
+        </table>
+    </datagrid>
+
+    <pagebar><left> <table>  <tr>   <td><button type='button' class='form_button' onclick="UrlQueryBy('page',1)" disabled='disabled' >首页</button></td>   <td><button type='button' class='form_button' onclick="UrlQueryBy('page',0)" disabled='disabled' >上一页</button></td>   <td><input  id='js_pager_no' type='text' value='1' onblur="UrlQueryBy('page',this.value);" class='form_text' /></td>   <td><button type='button' class='form_button' onclick="UrlQueryBy('page',2)"  >下一页</button></td>   <td><button type='button' class='form_button' onclick="UrlQueryBy('page',490)"  >尾页</button></td>  </tr> </table></left><right>  <em>共<span>490</span>页</em>  <em>（共<span>8321</span>条记录）</em></right></pagebar>
+
+</main>
+
+<br/>
+<h2>示例2：（detail/toolbar + datagrid）<n>//一般用详情页嵌入列表</n></h2>
+<hr />
+
+<detail>
+<toolbar>
+    <left>
+        名字：<input type="text" /> <button type="button">查询</button> <a class="mar20"></a> <button type="button" class="edit">添加</button>
+    </left>
+    <right>
+        <selector>
+            <a class="sel">aa</a> 
+            <a>bb</a> 
+            <a>cc</a>
+        </selector>
+    </right>
+</toolbar>
+<datagrid>
+    <table>
+        <thead>
+        <tr>
+            <td>col1</td>
+            <td>col2</td>
+            <td>col3</td>
+            <td>col4</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+        </tr>
+        </tbody>
+    </table>
+</datagrid>
+</detail>
+
+
+<br>
+<h2>示例3：（main/datagrid * n）<n>//一般可用于统计页</n></h2>
+<hr>
+<main>
+    <h2>借款数据</h2>
+    <hr />
+    <datagrid>
+        <table>
+            <thead>
+            <tr>
+                <td>col1</td>
+                <td>col2</td>
+                <td>col3</td>
+                <td>col4</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+            </tr>
+            </tbody>
+        </table>
+    </datagrid>
+    <br>
+    <h2>收款数据</h2>
+    <hr />
+    <datagrid>
+        <table>
+            <thead>
+            <tr>
+                <td>col1</td>
+                <td>col2</td>
+                <td>col3</td>
+                <td>col4</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+            </tr>
+            </tbody>
+        </table>
+    </datagrid>
+</main>
+
+
+<br>
+<br>
+<h2>示例4：（flex/tile）<n>//一般可用于统计页 或 控制板</n></h2>
+<hr>
+<div class="bg13">
+    <flex>
+        <tile class="col-4 mar10">
+            <h2>借款数据</h2>
+            <div>
+                <datagrid>
+                    <table>
+                        <thead>
+                        <tr>
+                            <td>col1</td>
+                            <td>col2</td>
+                            <td>col3</td>
+                            <td>col4</td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>4</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </datagrid>
+            </div>
+        </tile>
+
+        <tile class="col-8  mar10">
+            <h2>收款数据</h2>
+            <div>
+                <datagrid>
+                    <table>
+                        <thead>
+                        <tr>
+                            <td>col1</td>
+                            <td>col2</td>
+                            <td>col3</td>
+                            <td>col4</td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>4</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </datagrid>
+            </div>
+        </tile>
+
+    </flex>
+    <flex>
+        <tile class="col-12  mar10">
+            <h2>xx数据</h2>
+            <div>
+                <datagrid>
+                    <table>
+                        <thead>
+                        <tr>
+                            <td>col1</td>
+                            <td>col2</td>
+                            <td>col3</td>
+                            <td>col4</td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>4</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </datagrid>
+            </div>
+        </tile>
+    </flex>
+    <flex>
+        <tile class="col-12  mar10">
+            <h2>xx数据</h2>
+            <div>
+                线图...
+            </div>
+        </tile>
+    </flex>
+</div>
+
+
+</body>
+</html>

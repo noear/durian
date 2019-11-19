@@ -1,0 +1,57 @@
+﻿<!doctype html>
+<html lang="zh_CN">
+<head>
+	<meta charset="UTF-8">
+	<title>Durian ui demo</title>
+	<link rel="stylesheet" href="main.css">
+	<script src="//static.kdz6.cn/lib/zepto.js"></script>
+	<style>
+	</style>
+	<script>
+		$(function () {
+			$('menu a').click(function () {
+			    $('menu a.sel').removeClass('sel');
+				$(this).addClass('sel');
+            });
+        });
+	</script>
+</head>
+<body>
+
+<main>
+	<left>
+		<menu>
+			<div onclick="$('main').toggleClass('smlmenu');if(window.onMenuHide){window.onMenuHide();}">switch</div>
+
+			<items>
+				<a target="dock" href="demo_layout.html">布局</a>
+				<a target="dock" href="demo_component.html">组件</a>
+				<a target="dock" href="demo_form.html">表单</a>
+				<a target="dock" href="demo_style.html">样式</a>
+				<hr>
+				<a target="dock" href="demo_frame-1.htm">框架1</a>
+				<a target="dock" href="demo_frame-2.htm">框架2</a>
+				<!--<a target="dock" href="demo_frame-2x.htm">框架2+内容</a>-->
+				<a target="dock" href="demo_frame-3.htm">框架3</a>
+				<!--<a target="dock" href="demo_frame-3x.htm">框架3+内容</a>-->
+				<a target="dock" href="demo_frame-4.htm">框架4</a>
+				<hr>
+				<a target="dock" href="demo_content-1.html">内容1</a>
+				<a target="dock" href="demo_content-2.html">内容2</a>
+				<a target="dock" href="demo_content-3.html">内容3</a>
+
+
+			</items>
+
+		</menu>
+	</left>
+	<right class="frm">
+		<iframe name="dock"></iframe>
+	</right>
+</main>
+<footer>
+
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,435 @@
+<!doctype html>
+<html lang="zh_CN" class="frm10">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="main.css">
+    <script src="//static.kdz6.cn/lib/zepto.js"></script>
+    <style>
+
+
+    </style>
+</head>
+<body>
+
+<!-- ---------------------- -->
+<h2>示例1：header（已封装成jsp/ct:header）</h2>
+<hr />
+<!-- ---------------------- -->
+<header>
+    <label>
+        xxx
+    </label>
+    <nav>
+        <a>模块1</a>
+        <a class="sel">模块2</a>
+    </nav>
+    <aside>
+        欢迎你：xxx（修改密码）
+    </aside>
+</header>
+
+<!-- ---------------------- -->
+<hr />
+<h2>示例2：toolbar (new = left + right)</h2>
+<hr />
+<!-- ---------------------- -->
+
+<toolbar>
+    <left>
+        名字：<input type="text" /> <button type="button">查询</button> <a class="mar20"></a> <button type="button" class="edit">添加</button> <a class="btn">跳转</a>
+    </left>
+    <right>
+        <selector>
+            <a class="sel">aa</a> 
+            <a>bb</a> 
+            <a>cc</a>
+        </selector>
+    </right>
+</toolbar>
+
+<toolbar>
+
+            出借的人：<input value="" style="width: 180px;" type="text" name="lender_input" id="lender_input" placeholder="出借人手机号/姓名"/>&nbsp;&nbsp;&nbsp;&nbsp;
+            借款的人：<input value="" style="width: 180px;" type="text" name="borrower_input" id="borrower_input" placeholder="借款人手机号/姓名"/>&nbsp;&nbsp;&nbsp;&nbsp;
+            借条订单号：<input value="" type="text" name="iou_no" id="iou_no" placeholder="订单号"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            还款订单号：<input value="" type="text" name="order_no" id="order_no" placeholder="订单号"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        <br/>
+
+        还款时间：<input value="" name="repay_begin" id ="repay_begin" placeholder="起始时间" class="date-input">
+            -  <input value="" name="repay_end" id ="repay_end" placeholder="结束时间" class="date-input">&nbsp;&nbsp;&nbsp;&nbsp;
+            还款状态：<select id="repay_status" name="repay_status">
+            <option value="0">所有状态</option>
+            <option value="1">成功</option>
+            <option value="2">还款中</option>
+            <option value="3">失败</option>
+        </select>
+            支付通道筛选：<select id="channel_select" name="channel_select">
+            <option value="-1">所有支付通道</option>
+
+            <option value="0">支付通道B</option>
+
+            <option value="1">支付通道H</option>
+
+        </select>&nbsp;&nbsp;
+            <button type="submit">查询</button>&nbsp;&nbsp;
+            <button type="button" onclick="getDownload()">结果导出</button>
+
+</toolbar>
+
+
+<!-- ---------------------- -->
+<hr />
+<h2>示例3：toolbar + tabbar(left) + selector(right)</h2>
+<hr />
+<!-- ---------------------- -->
+
+<toolbar>
+    <left>
+        <tabbar>
+            <button>aaa</button>
+            <button class="sel">bbb</button>
+            <button>ccc</button>
+        </tabbar>
+    </left>
+    <right>
+        <selector>
+            <a class="sel">aa</a> 
+            <a>bb</a> 
+            <a>cc</a>
+        </selector>
+    </right>
+</toolbar>
+
+<!-- ---------------------- -->
+<hr />
+<h2>示例4：block + tabbar</h2>
+<hr />
+<!-- ---------------------- -->
+
+<block>
+    <tabbar>
+        <button>aaa</button>
+        <button class="sel">bbb</button>
+        <button>ccc</button>
+    </tabbar>
+</block>
+
+<!-- ---------------------- -->
+<hr />
+<h2>示例5：div + tabbar</h2>
+<hr />
+<!-- ---------------------- -->
+
+<div>
+    <tabbar>
+        <button>aaa</button>
+        <button class="sel">bbb</button>
+        <button>ccc</button>
+    </tabbar>
+</div>
+
+<!-- ---------------------- -->
+<hr />
+<h2>示例6：pagebar（已封装成jsp/ct:pagebar）</h2>
+<hr />
+<!-- ---------------------- -->
+
+<pagebar>
+	<left> 
+		<table>  <tr>   <td><button type='button' class='form_button' onclick="UrlQueryBy('page',1)" disabled='disabled' >首页</button></td>   <td><button type='button' class='form_button' onclick="UrlQueryBy('page',0)" disabled='disabled' >上一页</button></td>   <td><input  id='js_pager_no' type='text' value='1' onblur="UrlQueryBy('page',this.value);" class='form_text' /></td>   <td><button type='button' class='form_button' onclick="UrlQueryBy('page',2)"  >下一页</button></td>   <td><button type='button' class='form_button' onclick="UrlQueryBy('page',490)"  >尾页</button></td>  </tr> 
+		</table>
+	</left>
+	<right>  
+		<em>共<span>490</span>页（共<span>8321</span>条记录）</em>
+	</right>
+</pagebar>
+
+<!-- ---------------------- -->
+<hr />
+<h2>示例6：selector</h2>
+<hr />
+<!-- ---------------------- -->
+<div>
+    <selector>
+        <a class="sel">aa</a> 
+        <a>bb</a> 
+        <a>cc</a>
+    </selector>
+</div>
+
+<!-- ---------------------- -->
+<hr />
+<h2>示例6：tile （磁片 或 块）</h2>
+<hr />
+<!-- ---------------------- -->
+<block>
+    <tile class="col-4 mar10">
+        <label>bbb</label>
+        <section>
+            <block>xxxx</block>
+        </section>
+    </tile>
+</block>
+
+<!-- ---------------------- -->
+<hr />
+<h2>示例7：button</h2>
+<hr />
+<!-- ---------------------- -->
+<div>::div 下的 button</div>
+<div>
+    button:<button>xxx</button>
+        <button class="edit">xxx</button>
+        <button class="minor">xxx</button>
+        a:<a class="btn">xxx</a>
+        <a class="btn edit">xxx</a>
+        <a class="btn minor">xxx</a>
+</div>
+
+<div>::toolbar 下的 button</div>
+<toolbar>
+        button:<button>xxx</button>
+        <button class="edit">xxx</button>
+        <button class="minor">xxx</button>
+        a:<a class="btn">xxx</a>
+        <a class="btn edit">xxx</a>
+        <a class="btn minor">xxx</a>
+</toolbar>
+
+<div>::block 下的 button</div>
+<block>
+    button: <button>xxx</button>
+    <button class="edit">xxx</button>
+    <button class="minor">xxx</button>
+    
+    a: <a class="btn">xxx</a>
+        <a class="btn edit">xxx</a>
+        <a class="btn minor">xxx</a>
+</block>
+
+<!-- ---------------------- -->
+<hr />
+<h2>示例8：detail 下的 button</h2>
+<hr />
+<!-- ---------------------- -->
+
+<detail>
+    <div>::div 下的 button</div>
+    <div>
+	    
+        button: <button>xxx</button>
+	    <button class="minor">xxx</button>
+	    
+	    a: <a class="btn">xxx</a>
+	        <a class="btn minor">xxx</a>
+    </div>
+
+    <div>::toolbar 下的 button</div>
+    <toolbar>
+        <left>
+            button: <button>xxx</button>
+		    <button class="edit">xxx</button>
+		    <button class="minor">xxx</button>
+		    
+		    a: <a class="btn">xxx</a>
+		        <a class="btn edit">xxx</a>
+		        <a class="btn minor">xxx</a>
+        </left>
+    </toolbar>
+
+    <div>::block 下的 button</div>
+    <block>
+        button: <button>xxx</button>
+	    <button class="edit">xxx</button>
+	    <button class="minor">xxx</button>
+	    
+	    a: <a class="btn">xxx</a>
+	        <a class="btn edit">xxx</a>
+	        <a class="btn minor">xxx</a>
+    </block>
+</detail>
+
+<!-- ---------------------- -->
+<hr />
+<h2>示例9：排序属性[sort]</h2>
+<hr />
+<!-- ---------------------- -->
+<datagrid>
+    <table>
+        <thead>
+        <tr>
+            <td width="100px" sort="">tag</td>
+            <td width="250px">logger</td>
+            <td width="80px" sort="row_num">总数量</td>
+            <td width="80px" sort="row_num_today">今日数量</td>
+            <td width="80px" sort="row_num_yesterday">昨日数量</td>
+            <td width="80px" sort="row_num_beforeday">前日数量</td>
+            <td>备注</td>
+        </tr>
+        </thead>
+        <tbody id="tbody">
+
+        <tr >
+            <td>beauty</td>
+            <td class="left"><a href="#">beauty_log_api_output</a></td>
+            <td class="left">4464342</td>
+            <td class="left">22232</td>
+            <td class="left">177612</td>
+            <td class="left">177930</td>
+            <td class="left break"></td>
+        </tr>
+        </tbody>
+    </table>
+</datagrid>
+<!-- ---------------------- -->
+<hr />
+<h2>示例10：一部分样式类</h2>
+<hr />
+<!-- ---------------------- -->
+<detail>
+    <table class="col-6">
+        <tr>
+            <td width="120px">class:: .t1</td>
+            <td><span class="t1">xxxxx</span> </td>
+        </tr>
+        <tr>
+            <td>class:: .t2</td>
+            <td><span class="t2">xxxxx</span> </td>
+        </tr>
+        <tr>
+            <td>class:: .t3</td>
+            <td><span class="t3">xxxxx</span> </td>
+        </tr>
+        <tr>
+            <td>class:: .t4</td>
+            <td><span class="t4">xxxxx</span> </td>
+        </tr>
+        <tr>
+            <td>class:: .t5</td>
+            <td><span class="t5">xxxxx</span> </td>
+        </tr>
+        <tr>
+            <td>class:: .break</td>
+            <td><div class="break" style="width: 150px;">你你你你你你你你你你你你你你你</div> </td>
+        </tr>
+        <tr>
+            <td>class:: .left</td>
+            <td class="left">你你你你你你你你你你你你你你你 </td>
+        </tr>
+        <tr>
+            <td>class:: .center</td>
+            <td class="center">你你你你你你你你你你你你你你你 </td>
+        </tr>
+        <tr>
+            <td>class:: .right</td>
+            <td class="right">你你你你你你你你你你你你你你你 </td>
+        </tr>
+
+        <tr>
+            <td>class:: .bg1</td>
+            <td><span class="bg1">xxxxx</span> </td>
+        </tr>
+        <tr>
+            <td>class:: .bg2</td>
+            <td><span class="bg2">xxxxx</span> </td>
+        </tr>
+        <tr>
+            <td>class:: .bg3</td>
+            <td><span class="bg3">xxxxx</span> </td>
+        </tr>
+        <tr>
+            <td>class:: .bg4</td>
+            <td><span class="bg4">xxxxx</span> </td>
+        </tr>
+        <tr>
+            <td>class:: .bg5</td>
+            <td><span class="bg5">xxxxx</span> </td>
+        </tr>
+
+        <tr>
+            <td>class:: .bg11</td>
+            <td><span class="bg11">xxxxx</span> </td>
+        </tr>
+        <tr>
+            <td>class:: .bg12</td>
+            <td><span class="bg12">xxxxx</span> </td>
+        </tr>
+        <tr>
+            <td>class:: .bg14</td>
+            <td><span class="bg14">xxxxx</span> </td>
+        </tr>
+        <tr>
+            <td>class:: .bg15</td>
+            <td><span class="bg15">xxxxx</span> </td>
+        </tr>
+        <tr>
+            <td>class:: .bg16</td>
+            <td><span class="bg16">xxxxx</span> </td>
+        </tr>
+
+
+        <tr>
+            <td>class:: .rad3</td>
+            <td><block class="rad3 bg1">xxxxx</block> </td>
+        </tr>
+
+        <tr>
+            <td>class:: .rad4</td>
+            <td><block class="rad4 bg2">xxxxx</block> </td>
+        </tr>
+        <tr>
+            <td>class:: .rad5</td>
+            <td><block class="rad5 bg3">xxxxx</block> </td>
+        </tr>
+        <tr>
+            <td>class:: .rad10</td>
+            <td><block class="rad10 bg4">xxxxx</block> </td>
+        </tr>
+        <tr>
+            <td>class:: .rad-max</td>
+            <td><block class="rad-max bg5">xxxxx</block> </td>
+        </tr>
+    </table>
+</detail>
+
+<!-- ---------------------- -->
+<hr />
+<h2>示例11：一部分样式类</h2>
+<hr />
+<!-- ---------------------- -->
+<detail>
+    <table class="col-6">
+        <tr>
+            <td>H0</td>
+            <td><H0>xxxxx</H0> </td>
+        </tr>
+        <tr>
+            <td>H1</td>
+            <td><H1>xxxxx</H1> </td>
+        </tr>
+        <tr>
+            <td>H2</td>
+            <td><H2>xxxxx</H2> </td>
+        </tr>
+        <tr>
+            <td>H3</td>
+            <td><H3>xxxxx</H3> </td>
+        </tr>
+        <tr>
+            <td>H4</td>
+            <td><H4>xxxxx</H4> </td>
+        </tr>
+        <tr>
+            <td>H5</td>
+            <td><H5>xxxxx</H5> </td>
+        </tr>
+        <tr>
+            <td>H6</td>
+            <td><H6>xxxxx</H6> </td>
+        </tr>
+    </table>
+</detail>
+
+</body>
+</html>

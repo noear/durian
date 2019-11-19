@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="zh_CN" class="frm10">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="main.css">
+    <script src="//static.kdz6.cn/lib/zepto.js"></script>
+    <style>
+
+
+    </style>
+</head>
+<body>
+
+<block>
+    <h2>表单：自定义了几个新组件 file,radio,checkbox,*switcher,*boxlist</h2>
+</block>
+<br>
+<br>
+
+<h2>示例：所有表单组件</h2>
+<hr />
+<detail>
+
+    <form>
+        <table>
+            <tr>
+                <td>input[text]</td>
+                <td><input type="text" /></td>
+            </tr>
+            <tr>
+                <td>select</td>
+                <td>
+                    <select>
+                        <option>11111</option>
+                        <option>22222</option>
+                        <option>33333</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>file</td>
+                <td>
+                    <file class="sel">
+                        <label><input type="file"/><a>点击选择文件</a></label>
+                    </file>
+                </td>
+            </tr>
+            <tr>
+                <td>radio</td>
+                <td>
+                    <radio>
+                        <label><input type="radio" name="r2" /><a>是</a></label>
+                        <label><input type="radio" name="r2" checked /><a>否</a></label>
+                    </radio>
+                </td>
+            </tr>
+            <tr>
+                <td>boxlist/[radio]</td>
+                <td>
+                    <boxlist>
+                        <label><input type="radio" name="r3" /><a>xxx</a></label>
+                        <label><input type="radio" name="r3" /><a>yyy</a></label>
+                        <label><input type="radio" name="r3" checked /><a>zzz</a></label>
+                        <label><input type="radio" name="r3" /><a>zzz</a></label>
+                        <label><input type="radio" name="r3" /><a>zzz</a></label>
+                        <label><input type="radio" name="r3" /><a>zzz</a></label>
+                        <label><input type="radio" name="r3" /><a>zzz</a></label>
+                        <label><input type="radio" name="r3" /><a>zzz</a></label>
+                        <label><input type="radio" name="r3" /><a>zzz</a></label>
+                    </boxlist>
+
+                </td>
+            </tr>
+            <tr>
+                <td>boxlist/[radio]2</td>
+                <td>
+                    <boxlist>
+                        <label class="col-2 mar5-rb"><input type="radio" name="r4" /><a>xxx</a></label>
+                        <label class="col-2 mar5-rb"><input type="radio" name="r4" checked /><a>yyy</a></label>
+                        <label class="col-2 mar5-rb"><input type="radio" name="r4" /><a>zzz</a></label>
+                        <label class="col-2 mar5-rb"><input type="radio" name="r4" /><a>zzz</a></label>
+
+                        <label class="col-2 mar5-rb"><input type="radio" name="r4" /><a>zzz</a></label>
+                        <label class="col-2 mar5-rb"><input type="radio" name="r4" /><a>zzz</a></label>
+                        <label class="col-2 mar5-rb"><input type="radio" name="r4" /><a>zzz</a></label>
+                        <label class="col-2 mar5-rb"><input type="radio" name="r4" /><a>zzz</a></label>
+
+                        <label class="col-2 mar5-rb"><input type="radio" name="r4" /><a>zzz</a></label>
+                    </boxlist>
+
+                </td>
+            </tr>
+            <tr>
+                <td>checkbox</td>
+                <td>（
+                    <checkbox><label><input type="checkbox" name="c2" /><a>是</a></label></checkbox>
+                    <checkbox><label><input type="checkbox" name="c2" checked /><a>否</a></label></checkbox>
+                    ）
+                </td>
+            </tr>
+            <tr>
+                <td>checkbox</td>
+                <td>
+                    <checkbox>
+                        <label class="mar10-r"><input type="checkbox"  /><a>生产环境</a></label>
+                        <label class="mar10-r"><input type="checkbox" checked /><a>预发环境</a></label>
+                        <label class="mar10-r"><input type="checkbox" /><a>测试环境</a></label>
+                    </checkbox>
+                </td>
+            </tr>
+            <tr>
+                <td>boxlist/[checkbox]</td>
+                <td>
+                    <boxlist>
+                        <label><input type="checkbox" name="c3" /><a>xxx</a></label>
+                        <label><input type="checkbox" name="c3" checked /><a>yyy</a></label>
+                        <label><input type="checkbox" name="c3" /><a>zzz</a></label>
+                        <label><input type="checkbox" name="c3" /><a>zzz</a></label>
+                        <label><input type="checkbox" name="c3" /><a>zzz</a></label>
+                        <label><input type="checkbox" name="c3" /><a>zzz</a></label>
+                        <label><input type="checkbox" name="c3" checked /><a>zzz</a></label>
+                        <label><input type="checkbox" name="c3" /><a>zzz</a></label>
+                        <label><input type="checkbox" name="c3" /><a>zzz</a></label>
+                    </boxlist>
+
+                </td>
+            </tr>
+            <tr>
+                <td>switcher</td>
+                <td>
+                    <switcher><label><input type="checkbox" name="c2" /><a></a></label></switcher></td>
+            </tr>
+            <tr>
+                <td>switcher2</td>
+                <td>
+                    <switcher><label><input type="checkbox" name="c22" checked /><a></a></label></switcher>
+                    <switcher><label><input type="checkbox" name="c22" checked /><a></a></label></switcher>
+                </td>
+            </tr>
+            <tr>
+                <td>input[text].longtxt</td>
+                <td><input type="text" class="longtxt" /></td>
+            </tr>
+            <tr>
+                <td>textarea</td>
+                <td><textarea></textarea></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <button type="button">xxx</button>
+                    <button type="button" class="minor">另存为</button><!-- 次要按钮 -->
+                </td>
+            </tr>
+        </table>
+    </form>
+</detail>
+
+
+<br>
+<br>
+
+<h2>示例：表单文件组件更多示例</h2>
+<hr />
+<detail>
+
+    <form>
+        <table>
+
+            <tr>
+                <td>file</td>
+                <td>
+                    <file class="sel">
+                        <label><input type="file"/><a>点击选择文件</a></label>
+                    </file>
+                </td>
+            </tr>
+            <tr>
+                <td>file</td>
+                <td>
+
+                    <file>
+                        <label><input type="file"/>
+                            <a style="height: auto; width: auto; padding: 0px;">
+                                <div>
+                                    <label>点击或拖入上传</label>
+                                    <block style="width: 120px; height: 120px;margin: 0 10px 10px 10px;">
+                                        <img src="http://static.kdz6.cn/m.51kabao.cn/20171051kabao/51logo.png" style="width: 100%" />
+                                    </block>
+                                </div>
+                            </a>
+                        </label>
+                    </file>
+
+                </td>
+            </tr>
+        </table>
+    </form>
+</detail>
+
+
+
+</body>
+</html>
