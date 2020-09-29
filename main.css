@@ -1,10 +1,10 @@
 ﻿/*
 durian ui
-ver:1.0.50
+ver:1.0.65
 author:noear
 */
 *,*::before, *::after { box-sizing: border-box; }
-html,body,main,left,right,middle,tree,menu,header,footer,block,flex,li,ul,p,hr,cell,switcher,file,checkbox,radio,boxlist,detail,label,h1,h2,h3,h4,h5,h6{ margin: 0px; padding: 0px; }
+html,body,main,left,right,middle,tree,menu,header,footer,block,blockquote,flex,li,ul,ol,p,hr,cell,switcher,selector,file,checkbox,radio,boxlist,detail,label,h1,h2,h3,h4,h5,h6,pre{ margin: 0px; padding: 0px; }
 
 
 html {font-size: 14px; background-color: #fff; overflow: hidden; -webkit-overflow-scrolling:touch;}
@@ -17,7 +17,7 @@ html.frm20{overflow:auto;}
 html.frm20-y{overflow-y:auto;}
 html.frm20 body,html.frm20-y body{margin: 20px;}
 
-body{font-family:'微软雅黑'}
+body{font-family:sans-serif;}
 ul { list-style: none; display: block; }
 li,p { display: block; }
 i, em { font-style: normal; }
@@ -25,19 +25,25 @@ th { font-weight: normal; }
 table { border-collapse: collapse; border-spacing: 0px; border: 0px; }
 img { border: none; }
 a {color: #000;}
+t {display:inline;}
 button a{text-decoration:none;}
 input:focus { outline:none;}
+textarea:focus { outline:none;}
 note,n{display: inline; color:#999;}
 note-l,n-l{display: block;color:#999;}
 code{color: green;}
 .left{text-align: left!important;}
 .right{text-align: right!important;}
 .center{text-align: center!important;}
+.top{vertical-align:top;}
+.bottom{vertical-align:bottom;}
 .break{word-wrap:break-word; word-break:break-all;}
 .unbreak{white-space:nowrap;}
 .hidden{display:none;}
 
-h0,h0 *{font-size: 24px;display: inline;}
+h0,h1,h2,h3,h4,h5,h6{display: inline;}
+
+h0,h0 *{font-size: 24px;}
 h1,h1 *{font-size: 18px;}
 h2,h2 *{font-size: 16px;}
 h3,h3 *{font-size: 14px;}
@@ -73,11 +79,18 @@ body > header > .toggle{display:inline-block;width:40px; text-align:center;}
 body > header > .toggle+nav > * {margin:0 10px}
 
 
-body > header a.btn{ margin-right: 20px!important; width: auto!important; padding: 0 15px!important; color:#666!important; background-color: #D9DEE4!important; border-color: #D9DEE4!important;}
-body > header a.btn:hover{color:#fff!important; background-color: #546478!important; border-color: #546478!important;}
+body > header a.btn{ margin-right: 20px; width: auto; padding: 0 15px; color:#666; background-color: #D9DEE4; border-color: #D9DEE4;}
+body > header a.btn:hover{color:#fff; background-color: #546478; border-color: #546478;}
+
+/*body > header a.btn{ margin-right: 20px!important; width: auto!important; padding: 0 15px!important; color:#666!important; background-color: #D9DEE4!important; border-color: #D9DEE4!important;}*/
+/*body > header a.btn:hover{color:#fff!important; background-color: #546478!important; border-color: #546478!important;}*/
+
+body > header a.edit { background-color: #fd6721; color: #fff; border-color: #fd6721;}
+body > header a.edit:hover { background-color: #fd7f38; }
+
 
 body > header.style2{background: #333744;}/* 333744 */
-body > header.style2 a{color:#fff; padding:0 6px;}/* fff */
+body > header.style2 a:not(.btn){color:#fff; padding:0 6px;}/* fff */
 body > header.style2 a.sel{background-color:#f7f7f7;  border-radius:2px; color:#222;}
 
 body > footer {text-align: center;  }
@@ -112,6 +125,7 @@ left menu.style2 hr{border-color: #111;}
 left menu.style2 div{border: #111 1px solid;border-top: #111 1px solid;}
 /*left menu.style2 a.sel{background-color: #4b5163;}*/
 
+fieldset{border:1px solid #c9c9c9; border-radius: 5px;}
 
 tree {background-color: #eaedf1; display: block; overflow: auto; height: 100vh; overflow-x: hidden; overflow-y: auto;}
 tree ul{margin-bottom: 10px;}
@@ -137,10 +151,10 @@ button.edit:disabled { background-color: #aaa; color: #aaa; border: 1px solid #a
 button.minor,a.minor { background-color: #fff; color: #666; border: 1px solid #aaa; min-width: 40px; padding: 0 10px; height: 26px; font-size: 11px; }
 button.minor:hover,a.minor:hover { background-color: #aaa; color: #fff;}
 
-select{ -moz-appearance:none;  -webkit-appearance:none;appearance:none; background: url("main_select_arrow.png") no-repeat scroll right center #fff; padding-right: 14px; padding-left: 2px; border: 1px solid #C9C9C9; height: 27px;line-height: 27px; border-radius: 0px;}
+select{ -moz-appearance:none;  -webkit-appearance:none;appearance:none; background: url("main_select_arrow.png") no-repeat scroll right center #fff; padding-right: 14px; padding-left: 2px; border: 1px solid #C9C9C9; height: 26px;line-height: 26px; border-radius: 0px;}
 select option {line-height: 20px; height: 20px; font-size: 14px; }
 
-selector, .selector { display: inline-block; padding: 0 2px; cursor: pointer; border: 1px solid #C9C9C9; height: 26px; line-height: 26px; }
+selector, .selector { display: inline-block; padding: 0 2px; vertical-align: middle; cursor: pointer; border: 1px solid #C9C9C9; height: 26px; line-height: 26px; }
 selector > *, .selector .stateItem { margin: 2px; padding:0 2px; display: inline-block;  height: 18px;  line-height: 18px; position: relative; top:-2px; font-size:12px;}
 selector > *.sel, .selector .selected { background-color: #0066cc; color: #fff; }
 selector a{text-decoration:none;}
@@ -172,6 +186,8 @@ selector a{text-decoration:none;}
 .bg15{background-color: #189aca;}
 .bg16{background-color: #3399ff;}
 
+.w10{width:10px!important;display: inline-block}
+.w15{width:15px!important;display: inline-block}
 .w20{width:20px!important;display: inline-block}
 .w25{width:25px!important;display: inline-block}
 .w30{width:30px!important;display: inline-block}
@@ -184,17 +200,63 @@ selector a{text-decoration:none;}
 .w70{width:70px!important;display: inline-block}
 .w75{width:75px!important;display: inline-block}
 .w80{width:80px!important;display: inline-block}
+.w90{width:90px!important;display: inline-block}
 .w100{width:100px!important;display: inline-block}
 .w150{width:150px!important;display: inline-block}
 .w200{width:200px!important;display: inline-block}
 .w250{width:250px!important;display: inline-block}
 .w300{width:300px!important;display: inline-block}
+.w350{width:350px!important;display: inline-block}
 .w400{width:400px!important;display: inline-block}
+.w450{width:450px!important;display: inline-block}
 .w500{width:500px!important;display: inline-block}
+.w550{width:550px!important;display: inline-block}
 .w600{width:600px!important;display: inline-block}
 
+
+.w20p{width:20%!important;}
+.w30p{width:30%!important;}
+.w50p{width:50%!important;}
+.w70p{width:70%!important;}
+.w80p{width:80%!important;}
 .w100p{width:100%!important;}
 
+.h10{height:10px;}
+.h15{height:15px;}
+.h20{height:20px;}
+.h25{height:25px;}
+.h30{height:30px;}
+.h35{height:35px;}
+.h40{height:40px;}
+.h45{height:45px;}
+.h50{height:50px;}
+.h60{height:60px;}
+.h70{height:70px;}
+.h80{height:80px;}
+.h90{height:90px;}
+
+.ln15{line-height:15px;}
+.ln20{line-height:20px;}
+.ln25{line-height:25px;}
+.ln30{line-height:30px;}
+.ln35{line-height:35px;}
+.ln40{line-height:40px;}
+.ln50{line-height:50px;}
+.ln60{line-height:60px;}
+.ln70{line-height:70px;}
+.ln80{line-height:80px;}
+.ln90{line-height:90px;}
+
+.rad1{border-radius:1px;}
+.rad2{border-radius:2px;}
+.rad3{border-radius:3px;}
+.rad4{border-radius:4px;}
+.rad5{border-radius:5px;}
+
+.sml{font-size:small}
+.big{font-size:large}
+
+.hide{display:none;}
 .box{box-shadow: 0px 1px 1px rgba(0,0,0,0.15);}
 .noline{text-decoration: none;}
 .fixed{position:fixed;z-index:999;width:100%;}
@@ -207,15 +269,15 @@ detail table td img{width: 100px;}
 detail table td > div{line-height: 34px;}
 /*detail h2{font-size: 18px; line-height: 20px;}*/
 
-detail form th,detail .form th{font-weight:bold;text-align:right;padding-right:5px;}
+detail form th,detail .form th{text-align:right;padding-right:5px;} /*font-weight:bold;*/
 
-detail button,.form button { background-color: #fd6721; color: #fff; border: none; min-width: 120px; height:30px; font-size: 12px; }
-detail button:hover,.form button:hover { background-color: #fd7f38; }
+detail button,.form button,.form a.btn { background-color: #fd6721; color: #fff; border: none; min-width: 100px!important; line-height:30px!important;height:30px!important; font-size: 12px; }
+detail button:hover,.form button:hover,.form a.btn:hover { background-color: #fd7f38; }
 detail button:disabled,.form button:disabled { background-color: #aaa; }
-detail button.minor,.form button.minor { background-color: #f7f7f7; color: #333; border: 1px solid #ddd; min-width: 120px;  height:30px; font-size: 12px; }
-detail button.minor:hover,.form button.minor:hover { background-color: #fefefe; color: #333;}
-detail button.minor:disabled,.form button.minor:disabled { background-color: #aaa; color: #333;}
-.form button,.form button.minor{margin-left:10px; min-width:0px; width:auto; padding:0 20px;}
+detail button.minor,.form .minor{ background-color: #f7f7f7; color: #333; border: 1px solid #ddd; min-width: 100px;  height:30px; font-size: 12px; }
+detail button.minor:hover,.form .minor:hover { background-color: #fefefe; color: #333;}
+detail button.minor:disabled,.form .minor:disabled { background-color: #aaa; color: #333;}
+.form button,.form a.btn,.form .minor{margin-left:10px!important; min-width:0px!important; width:auto!important; padding:0 20px!important;}
 
 
 detail section{margin-bottom: 20px;}
@@ -258,7 +320,11 @@ pagebar right{float:right;display:inline-block;text-align: right;}
 pagebar left{float:left; display:inline-block;}
 
 /*色块*/
-block{display: block; padding: 10px; background: #f5f6fa;margin-bottom: 10px; }
+block{display: block; padding: 10px; background: #f5f6fa; margin-bottom: 10px; }
+blockquote{display: block; border-left:4px #888 solid; padding:10px; background: #f5f6fa; margin-bottom: 10px;}
+.blockquote{border-left:4px #888 solid;}
+
+blockquote left,.blockquote left {line-height:30px;}
 
 /*列表上方的工具条*/
 toolbar {display: block; padding: 4px 10px; background: #f5f6fa;margin-bottom: 10px; min-height:40px; line-height: 40px;}
@@ -308,7 +374,7 @@ body > toper{height:55px;width:100%; display: block; overflow: hidden;}
 
 body > main > left{height: calc(100vh);}
 body > main > middle{height: calc(100vh);}
-body > main > right{height: calc(100vh - 20px); overflow: auto; padding-top: 10px; padding-bottom: 10px;  padding-right: 10px;}
+body > main > right{height: calc(100vh); overflow: auto;}
 
 body > main > right.frm{overflow: hidden; height: calc(100vh)!important;padding: 0px!important;}
 body > main > iframe{width: 100%!important; height: 100%!important; border: none;}
@@ -317,7 +383,7 @@ body > main.frm detail{padding: 0px; padding-top: 5px;}
 
 body > header+main > left{height: calc(100vh - 50px);}
 body > header+main > middle{height: calc(100vh - 50px);}
-body > header+main > right{height: calc(100vh - 70px)!important; }
+body > header+main > right{height: calc(100vh - 50px)!important; }
 body > header+main > right.frm{height: calc(100vh - 50px)!important;padding: 0px!important;}
 body > header+main > iframe{width: 100%!important; height: calc(100vh - 50px)!important; border: none;}
 
@@ -330,9 +396,10 @@ toper > right{text-align: right;float:right;}
 
     main > left{width: 160px; }
     main > middle{width: 160px; }
-    main > right{width:calc(100% - 180px);}
+    /*main > right{width:calc(100% - 180px);}*/
+    main > right{width:calc(100% - 160px);}
     main > left + middle + right {width: calc(100% - 340px); }
-    main > right.frm{width:calc(100% - 160px)!important;}
+    /*main > right.frm{width:calc(100% - 160px)!important;}*/
 
     main > article{width:calc(100% - 180px);}
     main > aside{ width: 170px; }
@@ -342,7 +409,7 @@ toper > right{text-align: right;float:right;}
     main.smlmenu > left{width: 40px; }
     main.smlmenu > left > menu items{visibility: hidden;}
     main.smlmenu > middle{width: 160px; }
-    main.smlmenu > right{width:calc(100% - 60px);}
+    main.smlmenu > right{width:calc(100% - 40px);}
     main.smlmenu > left + middle + right {width: calc(100% - 220px); }
     main.smlmenu > right.frm{width:calc(100% - 40px)!important;}
 
@@ -363,19 +430,19 @@ tile >*{display: block; margin: 10px;}
 
 
 /* form ext */
-file, radio,checkbox,switcher{display: inline-flex;line-height: 0px;}
+file, radio,checkbox,switcher{display: inline-flex; line-height: 0px; vertical-align: middle;}
 file input:not([type='text']), radio input:not([type='text']), boxlist input:not([type='text']), checkbox input:not([type='text']),switcher input:not([type='text']){position: absolute; clip: rect(0, 0, 0, 0);}
 file label, radio label,checkbox label,switcher label,boxlist label{display: inline-flex;margin: 0px;}
 
-file a { background:#fff;  border: 2px dotted #444; cursor: pointer; user-select: none; display: inline-block;  text-align: center; font-size: 40%; overflow: hidden; position: relative; height:22px; line-height:22px; padding: 0 15px;}
+file a { background:#fff;  border: 2px dotted #444; cursor: pointer; user-select: none; display: inline-block;  text-align: center; font-size: 40%; overflow: hidden; position: relative; height:26px; line-height:22px; padding: 0 15px;}
 file a:hover { background:#ddd; }
 file.sel a::after{content: "✓"; font-size: 18px; color: #0066cc;position: absolute; z-index: 2; right: 0px; top: 0px;}
 
 radio input + a::before,checkbox input + a::before{content: "\a0";display: inline-block;vertical-align: middle;font-size: 18px;width: 1em;height: 1em;margin-right: .2em;border: 1px solid #ddd; background-color:#fff; text-indent: .15em;line-height: 1em;}
 radio input + a::before{border-radius: 50%;}
-radio input:checked + a::before{background-color: #0066cc; background-clip: content-box;padding: .2em;}
+radio input:checked + a::before{background-color: #0066cc; border-color:#0066cc; background-clip: content-box;padding: .2em;}
 
-checkbox input:checked + a::before{content: "✓";color: #0066cc; background-clip: content-box;}
+checkbox input:checked + a::before{content: "✓";color: #0066cc; border-color:#0066cc; background-clip: content-box;}
 
 boxlist{display: block;}
 boxlist label{cursor: default;  position: relative;}
@@ -448,6 +515,8 @@ flex.auto > *{flex-basis:auto;}
 .pad5{padding: 5px!important;}
 .pad5-rb{padding: 0 5px 5px 0!important;}
 .pad10{padding: 10px!important;}
+.pad10-t{padding-top: 10px!important;}
+.pad10-b{padding-bottom: 10px!important;}
 .pad10-rb{padding: 0 10px 10px 0!important;}
 .pad15{padding: 15px!important;}
 .pad20{padding: 20px!important;}
@@ -459,7 +528,6 @@ flex.auto > *{flex-basis:auto;}
 .rad5{border-radius: 5px;}
 .rad10{border-radius: 10px;}
 .rad-max{border-radius: 100vh;}
-
 
 
 .dropdown { position: relative; display: inline-block; }
